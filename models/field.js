@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const { sequelize } = require('../utils/db');
 
-class Field extends Model {};
+class Field extends Model { };
 
 Field.init({
   id: {
@@ -10,47 +10,14 @@ Field.init({
     autoIncrement: true,
     unique: true
   },
-  username: {
-    type: DataTypes.BOOLEAN,
-    allowNull: false,
-    defaultValue: true
+  select: {
+    type: DataTypes.ARRAY(DataTypes.ENUM({
+      values: [
+        'username', 'firstName', 'lastName', 'gender', 'height', 'weight', 'bloodType', 'race'
+      ]
+    }))
   },
-  firstName: {
-    type: DataTypes.BOOLEAN,
-    allowNull: false,
-    defaultValue: true
-  },
-  lastName: {
-    type: DataTypes.BOOLEAN,
-    allowNull: false,
-    defaultValue: true
-  },
-  gender: {
-    type: DataTypes.BOOLEAN,
-    allowNull: false,
-    defaultValue: true
-  },
-  height: {
-    type: DataTypes.BOOLEAN,
-    allowNull: false,
-    defaultValue: true
-  },
-  weight: {
-    type: DataTypes.BOOLEAN,
-    allowNull: false,
-    defaultValue: true
-  },
-  bloodType: {
-    type: DataTypes.BOOLEAN,
-    allowNull: false,
-    defaultValue: true
-  },
-  race: {
-    type: DataTypes.BOOLEAN,
-    allowNull: false,
-    defaultValue: true
-  }
-},{
+}, {
   sequelize,
   underscored: true,
   timestamps: false,

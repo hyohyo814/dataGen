@@ -30,3 +30,5 @@ Contact.init({
   timestamps: false,
   modelName: 'contact'
 })
+
+module.exports = Contact;
