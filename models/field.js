@@ -11,11 +11,24 @@ Field.init({
     unique: true
   },
   select: {
-    type: DataTypes.ARRAY(DataTypes.ENUM({
-      values: [
-        'username', 'firstName', 'lastName', 'gender', 'height', 'weight', 'bloodType', 'race'
-      ]
-    }))
+    type: DataTypes.ARRAY(
+      DataTypes.ENUM(
+        'username',
+        'firstName',
+        'lastName',
+        'gender',
+        'ethnicity',
+        'occupation'
+    )),
+    validate: {
+      isIn: [[
+      'username',
+      'firstName',
+      'lastName',
+      'gender',
+      'ethnicity',
+      'occupation' ]]
+    }
   },
 }, {
   sequelize,

@@ -36,31 +36,11 @@ Personnel.init({
       isIn: [['male', 'female', 'other']]
     }
   },
-  height: {
-    type: DataTypes.FLOAT,
-    allowNull: true,
-    validate: {
-      min: 0,
-      max: 300
-    }
+  ethnicity: {
+    type: DataTypes.STRING,
+    allowNull: true
   },
-  weight: {
-    type: DataTypes.FLOAT,
-    allowNull: true,
-    validate: {
-      min: 0,
-      max: 1000
-    }
-  },
-  bloodType: {
-    type: DataTypes.ENUM,
-    values: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'],
-    allowNull: true,
-    validate: {
-      isIn: [['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']]
-    }
-  },
-  race: {
+  occupation: {
     type: DataTypes.STRING,
     allowNull: true
   }

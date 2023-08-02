@@ -2,11 +2,12 @@ const { sequelize } = require("../models/contact");
 
 module.exports = {
   up: async ({ context: queryInterface }) => {
-    await queryInterface.bulkInsert('fields', [
-      { select: sequelize.literal(`ARRAY['username', 'firstName', 'lastName']::"enum_fields_select"[]`) }
-    ], {});
+    const fieldsData = [{
+      select: sequelize.literal(`ARRAY['username', 'firstName', 'lastName', 'gender']::"enum_fields_select"[]`) 
+    }];
+    await queryInterface.bulkInsert('fields', fieldsData, {});
   },
   down: async ({ context: queryInterface }) => {
-    await queryInterface.bulkDelete('fields');
+    await queryInterface.bulkDelete('fields', null, {});
   }
 }
