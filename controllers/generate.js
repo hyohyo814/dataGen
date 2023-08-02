@@ -4,7 +4,7 @@ const { faker } = require('@faker-js/faker');
 const { generateSel } = require('../utils/helpers');
 
 
-const { Field } = require('../models');
+const { Field, Personnel } = require('../models');
 const { sequelize } = require('../models/contact');
 
 router.post('/', async (req, res) => {
@@ -16,7 +16,8 @@ router.post('/', async (req, res) => {
 
   const passThrough = generateSel(newEntry.select);
 
-  res.json(passThrough);
+  const newData = await Personnel.create(passThrough);
+  res.json(newData);
 })
 
 // select: sequelize.literal(`ARRAY['username', 'firstName', 'lastName']::"enum_fields_select"[]`)

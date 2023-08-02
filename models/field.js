@@ -20,16 +20,7 @@ Field.init({
         'ethnicity',
         'occupation'
     )),
-    validate: {
-      isIn: [[
-      'username',
-      'firstName',
-      'lastName',
-      'gender',
-      'ethnicity',
-      'occupation' ]]
-    }
-  },
+  }
 }, {
   sequelize,
   underscored: true,

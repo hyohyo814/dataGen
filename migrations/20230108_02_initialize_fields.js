@@ -10,8 +10,7 @@ module.exports = {
         unique: true
       },
       select: {
-        type: DataTypes.ARRAY(
-          DataTypes.ENUM(
+        type: DataTypes.ARRAY(DataTypes.ENUM(
             'username',
             'firstName',
             'lastName',
@@ -19,15 +18,6 @@ module.exports = {
             'ethnicity',
             'occupation'
         )),
-        validate: {
-          isIn: [[
-          'username',
-          'firstName',
-          'lastName',
-          'gender',
-          'ethnicity',
-          'occupation' ]]
-        }
       },
     });
   },
